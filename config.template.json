@@ -1,0 +1,24 @@
+{
+  "log": { "level": "warn", "timestamp": true },
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-in",
+      "listen": "0.0.0.0",
+      "listen_port": __PORT__,
+      "users": [
+        { "name": "user", "uuid": "__UUID__" }
+      ],
+      "transport": {
+        "type": "ws",
+        "path": "__WS_PATH__",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    }
+  ],
+  "outbounds": [
+    { "type": "direct", "tag": "direct" }
+  ],
+  "route": { "final": "direct" }
+}

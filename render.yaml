@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: webcdn-us
+    runtime: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: UUID
+        sync: false
+      - key: WS_PATH
+        value: /cdn
